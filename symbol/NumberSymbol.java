@@ -37,7 +37,7 @@ public class NumberSymbol implements Symbol {
 	 * überschreibt die default Implementierung von toString()
 	 */
 	public String toString() {
-		return value.toString();
+		return ("NumberSymbol");
 	}
 	
 	/*

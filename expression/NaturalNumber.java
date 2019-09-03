@@ -4,7 +4,7 @@ package expression;
  * natürliche ganze Zahl
  */
 public class NaturalNumber extends Factor {
-	private Integer value;
+	private Integer value;	// Wert der natürlichen Zahl
 	
 	/*
 	 * Konstruktor

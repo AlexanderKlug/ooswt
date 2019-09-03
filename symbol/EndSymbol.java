@@ -15,5 +15,10 @@ public class EndSymbol implements Symbol {
 	public void accept(Visitor visitor) throws ParserException {
 		visitor.handleEndSymbol(this);
 	}
+	
+	@Override
+	public String toString() {
+		return ("EndSymbol");
+	}
 
 }

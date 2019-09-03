@@ -26,4 +26,9 @@ public class StarSymbol implements OperatorSymbol {
 	public void accept(Visitor visitor) throws ParserException {
 		visitor.handleStarSymbol(this);
 	}
+	
+	@Override
+	public String toString() {
+		return ("StarSymbol");
+	}
 }

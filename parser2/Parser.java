@@ -13,6 +13,9 @@ import symbol.StarSymbol;
 import symbol.Symbol;
 import symbol.Visitor;
 
+/*
+ * wandelt eine Liste aus Symbolen in einen mathematischen Ausdruck um
+ */
 public abstract class Parser implements Visitor {
 	private List<Symbol> symbols;
 	
@@ -20,8 +23,11 @@ public abstract class Parser implements Visitor {
 		this.symbols = symbols;
 	}
 	
+	/*
+	 * git einen Fehler aus wenn die Anordnung der Symbole syntaktisch nicht korrekt ist
+	 */
 	private void throwUnexpectedSymbolException(Symbol symbol) throws ParserException {
-		throw new ParserException(this.getClass().getName() +": unerwartetes Symbol" + symbol.toString());
+		throw new ParserException(this.getClass().getName() +": unerwartetes Symbol " + '"' + symbol.toString() + '"');
 	}
 
 	@Override
@@ -64,14 +70,23 @@ public abstract class Parser implements Visitor {
 	public void handleEndSymbol(EndSymbol symbol) throws ParserException {
 	}
 
+	/*
+	 * getter Methode für die gespeicherte Symbolliste
+	 */
 	protected List<Symbol> getSymbols() {
 		return symbols;
 	}
 	
+	/*
+	 * löscht das erste Element der Symbolliste
+	 */
 	protected void skipCurrentSymbol() {
 		this.symbols.remove(0);
 	}
 	
+	/*
+	 * gibt das erste Element der Symbolliste aus
+	 */
 	protected Symbol getCurrentSymbol() {
 		return symbols.get(0);
 	}

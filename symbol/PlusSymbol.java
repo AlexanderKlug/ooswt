@@ -31,4 +31,9 @@ public class PlusSymbol implements OperatorSymbol {
 	public void accept(Visitor visitor) throws ParserException {
 		visitor.handlePlusSymbol(this);
 	}
+	
+	@Override
+	public String toString() {
+		return ("PlusSymbol");
+	}
 }

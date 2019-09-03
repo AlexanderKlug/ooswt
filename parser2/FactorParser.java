@@ -12,13 +12,22 @@ import symbol.NumberSymbol;
 import symbol.RBrSymbol;
 import symbol.Symbol;
 
+/*
+ * erzeut eine natürliche Zahl oder einen Klammerausdruck
+ */
 public class FactorParser extends Parser {
 	private Factor myFactor;
 	
+	/*
+	 * Konstruktor
+	 */
 	public FactorParser(List<Symbol> symbols) {
 		super(symbols);
 	}
 
+	/*
+	 * wandelt Symbole in eine natürliche Zahl oder einen Klammerausdruck um
+	 */
 	public Factor toExpression() throws ParserException {
 		getCurrentSymbol().accept(this);
 		return myFactor;

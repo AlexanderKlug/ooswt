@@ -1,5 +1,8 @@
 package expression;
 
+/*
+ * Klammerausdruck
+ */
 public class Bracket extends Factor {
 	private Expression bracketedExpression;
 	

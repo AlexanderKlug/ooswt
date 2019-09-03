@@ -131,4 +131,10 @@ public class ParserTests {
 		assertThrows(ParserException.class, () -> parser.toExpression(liste), "falsche Eingabe");
 	}
 	
+	@Test
+	public void evaluateKlammer9() throws ParserException {
+		List<Symbol> liste = scanner.toSymbolSequence("3 * ((2+2)*4)");
+		assertEquals(new Integer(48), parser.toExpression(liste).evaluate());
+	}
+	
 }

@@ -11,13 +11,22 @@ import symbol.RBrSymbol;
 import symbol.StarSymbol;
 import symbol.Symbol;
 
+/*
+ * wandelt Symbole in ein Produkt oder einen Faktor um
+ */
 public class SummandParser extends Parser {
 	private Summand mySummand;
 	
+	/*
+	 * Konstruktor
+	 */
 	public SummandParser(List<Symbol> symbols) {
 		super(symbols);
 	}
 
+	/*
+	 * wandelt Symbole in ein Produkt oder einen Faktor um
+	 */
 	public Summand toExpression() throws ParserException {
 		this.mySummand = new FactorParser(getSymbols()).toExpression();
 		getCurrentSymbol().accept(this);
@@ -28,7 +37,7 @@ public class SummandParser extends Parser {
 	@Override
 	public void handleStarSymbol(StarSymbol symbol) throws ParserException {
 		skipCurrentSymbol();
-		mySummand = new Product((Factor) mySummand, new SummandParser(getSymbols()).toExpression());
+		this.mySummand = new Product((Factor) this.mySummand, new SummandParser(getSymbols()).toExpression());
 		
 	}
 	

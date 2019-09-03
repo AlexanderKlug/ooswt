@@ -35,7 +35,8 @@ public class ErrorToken implements Symbol {
 	 /*
 	  * returns the content of the ErrorSymbol
 	  */
-	 public String getContent() {
+	 @Override
+	 public String toString() {
 		 return this.content;
 	 }
 

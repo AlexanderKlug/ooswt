@@ -1,7 +1,9 @@
 package symbol;
 
 import expression.ParserException;
-
+/*
+ * Visitor Pattern
+ */
 public interface Visitor {
 	
 	public void handleNumberSymbol(NumberSymbol symbol) throws ParserException;

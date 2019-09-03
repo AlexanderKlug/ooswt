@@ -26,6 +26,11 @@ public class LBrSymbol implements BracketSymbol {
 	public void accept(Visitor visitor) throws ParserException {
 		visitor.handleLBrSymbol(this);
 	}
+	
+	@Override
+	public String toString() {
+		return ("LBrSymbol");
+	}
 
 	
 }

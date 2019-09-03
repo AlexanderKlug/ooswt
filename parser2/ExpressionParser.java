@@ -10,23 +10,34 @@ import symbol.PlusSymbol;
 import symbol.RBrSymbol;
 import symbol.Symbol;
 
-public class ExpressionParser extends Parser {
+/*
+ * wandelt Symbole in einen Summanden oder eine Summe um
+ * nicht öffentlich
+ * Aufruf über den ExpressionParserProxy
+ */
+class ExpressionParser extends Parser {
+	private Expression myExpression;
+	
+	/*
+	 * Konstruktor
+	 */
 	public ExpressionParser(List<Symbol> symbols) {
 		super(symbols);
 	}
 
-	private Expression myExpression;
-	
+	/*
+	 * wandelt Symbole in einen Summanden oder eine Summe um
+	 */
 	public Expression toExpression() throws ParserException {
-		myExpression = new SummandParser(getSymbols()).toExpression();
+		this.myExpression = new SummandParser(getSymbols()).toExpression();
 		getCurrentSymbol().accept(this);
-		return myExpression;
+		return this.myExpression;
 	}
 	
 	@Override
 	public void handlePlusSymbol(PlusSymbol symbol) throws ParserException {
 		skipCurrentSymbol();
-		myExpression = new Sum((Summand) myExpression, new ExpressionParser(getSymbols()).toExpression());
+		this.myExpression = new Sum((Summand) this.myExpression, new ExpressionParser(getSymbols()).toExpression());
 	}
 	
 	@Override

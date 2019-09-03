@@ -21,7 +21,7 @@ public class ExpressionParserProxy {
 			symbols.add(new EndSymbol());
 			Expression expression = new ExpressionParser(symbols).toExpression();
 			if (symbols.size() > 1) {
-				throw new ParserException("Unerwartetes Symbol "+symbols.get(0).toString());
+				throw new ParserException("Unerwartetes Symbol " +  symbols.get(0).toString());
 			}
 			
 			return expression;
