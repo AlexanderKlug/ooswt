@@ -19,7 +19,7 @@ class ExpressionParser extends Parser {
 	private Expression myExpression;
 	
 	/*
-	 * Konstruktor
+	 * Konstruktor test
 	 */
 	public ExpressionParser(List<Symbol> symbols) {
 		super(symbols);
